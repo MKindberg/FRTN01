@@ -1,0 +1,8 @@
+package ballBeamRegul;
+// BallAndBeamRegul class to be written by you
+public class BallAndBeamRegul extends Thread {
+	// Constructor
+	public BallAndBeamRegul(ReferenceGenerator refgen, BallAndBeam bb, int priority);
+	
+	public void run();
+}

@@ -1,0 +1,24 @@
+package button;
+// Code skeleton for the OpCom class in the Buttons exercise
+
+public class OpCom extends Thread {
+	private Regul regul;
+	private double k;
+
+	// Constructor
+	public OpCom(Regul regul, int priority) {
+		this.regul = regul;
+		setPriority(priority);
+	}
+
+	private synchronized void setK(double k) {
+		this.k = k;
+	}
+
+	public synchronized double getK() {
+		return K;
+	}
+
+	// run method
+	public void run();
+}

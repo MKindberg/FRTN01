@@ -1,0 +1,37 @@
+package ballBeamRegul;
+
+import SimEnvironment.AnalogSink;
+import SimEnvironment.AnalogSource;
+import beamRegulator.PI;
+import beamRegulator.ReferenceGenerator;
+
+// BallAndBeamRegul class to be written by you
+public class BallAndBeamRegul extends Thread {
+
+	private AnalogSource analogIn;
+	private AnalogSink analogOut;
+	private AnalogSink analogRef;
+
+	private double uMin = -10.0;
+	private double uMax = 10.0;
+
+	private PI PIController;
+	private PID PIDController;
+
+	private ReferenceGenerator refgen;
+
+	// Constructor
+	public BallAndBeamRegul(ReferenceGenerator refgen, BallAndBeam bb, int priority) {
+		this.refgen = refgen;
+
+		analogIn = bb.getSource(0);
+		analogOut = bb.getSink(0);
+		analogRef = bb.getSink(1);
+		
+		PIController = new PIController("PI");
+		
+	}
+
+	public void run() {
+	}
+}

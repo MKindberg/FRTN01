@@ -1,0 +1,22 @@
+package button;
+
+import se.lth.control.realtime.DigitalIn;
+
+// Code skeleton for the Buttons class in the Buttons exercise
+
+public class Buttons extends Thread {
+	private Regul regul;
+	private SquareWave square;
+
+	// Inputs and outputs
+	private DigitalIn onInput;
+	private DigitalIn offInput;
+	private DigitalIn incInput;
+	private DigitalIn decInput;
+
+	// Constructor
+	public Buttons(Regul regul, SquareWave square, int priority, Box b);
+
+	// run method
+	public void run();
+}

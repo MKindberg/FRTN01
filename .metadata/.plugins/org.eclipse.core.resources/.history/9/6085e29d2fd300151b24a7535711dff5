@@ -1,0 +1,78 @@
+package ballBeamRegul;
+
+import SimEnvironment.AnalogSink;
+import SimEnvironment.AnalogSource;
+
+// BallAndBeamRegul class to be written by you
+public class BallAndBeamRegul extends Thread {
+
+	private AnalogSource analogInAngle;
+	private AnalogSource analogInPosition;
+	private AnalogSink analogOut;
+	private AnalogSink analogRef;
+
+	private double uMin = -10.0;
+	private double uMax = 10.0;
+
+	private PI PIController;
+	private PID PIDController;
+
+	private ReferenceGenerator refgen;
+
+	// Constructor
+	public BallAndBeamRegul(ReferenceGenerator refgen, BallAndBeam bb, int priority) {
+		this.refgen = refgen;
+
+		analogInPosition = bb.getSource(0);
+		analogInAngle = bb.getSource(1);
+		analogOut = bb.getSink(0);
+		analogRef = bb.getSink(1);
+
+		PIController = new PI("PI");
+		PIDController = new PID("PID");
+
+		setPriority(priority);
+
+	}
+
+	private double limit(double u) {
+		if (u > uMax)
+			u = uMax;
+		else if (u < uMin)
+			u = uMin;
+		return u;
+	}
+
+	public void run() {
+		long t = System.currentTimeMillis();
+		while (!Thread.interrupted()) {
+			// Code to perform IO
+			double yA = analogInAngle.get();
+			double yP = analogInPosition.get();
+			double refP = refgen.getRef();
+			double refA;
+
+			synchronized (PIDController) {
+				refA = limit(PIDController.calculateOutput(yP, refP));
+				synchronized (PIController) {
+					double u = limit(PIController.calculateOutput(yA, refA));
+					analogOut.set(u);
+					PIController.updateState(u);
+				}
+				PIDController.updateState(refA);
+			}
+			analogRef.set(refA);
+
+			t += PIDController.getHMillis();
+			long duration = t - System.currentTimeMillis();
+			System.out.println(t);
+			System.out.println(PIDController.getHMillis());
+			try {
+				Thread.sleep(duration);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("BeamRegulator stopped.");
+	}
+}

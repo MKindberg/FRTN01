@@ -1,0 +1,43 @@
+import SimEnvironment.AnalogSink;
+import SimEnvironment.AnalogSource;
+
+// BeamRegul class to be written by you
+public class BeamRegul extends Thread {
+	// IO interface declarations
+	private AnalogSource analogIn;
+	private AnalogSink analogOut;
+	private AnalogSink analogRef;
+
+	Private PI pi;
+
+	double y;
+	double u;
+	double ref;
+
+	private ReferenceGenerator refgen;
+
+	public BeamRegul(ReferenceGenerator refgen, Beam beam, int priority) {
+		// ...
+		// Code to initialize the IO
+		analogIn = beam.getSource(0);
+		analogOut = beam.getSink(0);
+		analogRef = beam.getSink(1);
+		// ...
+
+		this.refgen = refgen;
+		setPriority(priority);
+	}
+
+	public void run() {
+
+		while (!Thread.interrupted()) {
+			// Code to perform IO
+			y = analogIn.get();
+			ref = refgen.getRef();
+			// ...
+			analogOut.set(u);
+			analogRef.set(ref);
+			// ...
+		}
+	}
+}

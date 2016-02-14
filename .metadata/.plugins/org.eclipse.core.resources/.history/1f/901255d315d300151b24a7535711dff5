@@ -1,0 +1,12 @@
+package button;
+// Code skeleton for the OpCom class in the Buttons exercise
+
+public class OpCom extends Thread {
+	private Regul regul;
+
+	// Constructor
+	public OpCom(Regul regul, int priority);
+
+	// run method
+	public void run();
+}

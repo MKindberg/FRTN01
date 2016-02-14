@@ -1,0 +1,50 @@
+package button;
+// Code skeleton for the Buttons class in the Buttons exercise
+
+import SimEnvironment.DigitalButtonIn;
+
+public class Buttons extends Thread {
+	private Regul regul;
+	private SquareWave square;
+
+	// Inputs and outputs
+	private DigitalButtonIn onInput;
+	private DigitalButtonIn offInput;
+	private DigitalButtonIn incInput;
+	private DigitalButtonIn decInput;
+
+	// Constructor
+	public Buttons(Regul regul, SquareWave square, int priority, Box b) {
+		this.regul = regul;
+		this.square = square;
+
+		onInput = (DigitalButtonIn) b.getOnButtonInput();
+		offInput =  b.getOffButtonInput();
+		incInput = b.getIncButtonInput();
+		decInput = b.getDecButtonInput();
+
+		setPriority(priority);
+	}
+
+	// run method
+	public void run() {
+		final int period = 10;
+		final double delta = 10;
+		try {
+			while (!Thread.interrupted()) {
+				if (onInput.get())
+					regul.turnOn();
+				if (offInput.get())
+					regul.turnOff();
+				if (incInput.get())
+					square.incAmp(delta);
+				if (decInput.get())
+					square.decAmp(delta);
+				Thread.sleep(period);
+			}
+		} catch (InterruptedException e) {
+
+		}
+		System.out.println("Stopped");
+	}
+}

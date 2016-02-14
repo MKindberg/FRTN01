@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSpinnerUI"/>
+<fullyQualifiedTypeName name="Periodic"/>
+<fullyQualifiedTypeName name="PeriodicWithInnerThread"/>
+<fullyQualifiedTypeName name="PeriodicWithInnerThread.PeriodicThread"/>
+<fullyQualifiedTypeName name="WrongWithSynchronization"/>
+<fullyQualifiedTypeName name="se.lth.control.realtime.Semaphore"/>
+<fullyQualifiedTypeName name="button.SquareWave.AmplitudeMonitor"/>
+<fullyQualifiedTypeName name="button.Regul.ParameterMonitor"/>
+<fullyQualifiedTypeName name="button.Regul.ReferenceMonitor"/>
+<fullyQualifiedTypeName name="button.Regul.OnMonitor"/>
+<fullyQualifiedTypeName name="SimEnvironment.AnalogSink"/>
+<fullyQualifiedTypeName name="SimEnvironment.DigitalButtonSink"/>
+<fullyQualifiedTypeName name="SimEnvironment.DigitalButtonSource"/>
+<fullyQualifiedTypeName name="SimEnvironment.DigitalButtonOut"/>
+<fullyQualifiedTypeName name="SimEnvironment.DigitalButtonIn"/>
+<fullyQualifiedTypeName name="SimEnvironment.VirtualProcess"/>
+<fullyQualifiedTypeName name="SimEnvironment.AnalogSource"/>
+<fullyQualifiedTypeName name="se.lth.control.BoxPanel"/>
+<fullyQualifiedTypeName name="ReferenceGenerator"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>
