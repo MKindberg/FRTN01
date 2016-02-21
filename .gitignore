@@ -1,15 +1,21 @@
-*.class
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Folder config file
+Desktop.ini
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
 
 # =========================
 # Operating System Files
@@ -40,24 +46,52 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Windows
-# =========================
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
 
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# Eclipse Core
+.project
 
-# Folder config file
-Desktop.ini
+# External tool builders
+.externalToolBuilders/
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
 
-# Windows shortcuts
-*.lnk
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
